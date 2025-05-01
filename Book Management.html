@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Management</title>
+  <link rel="icon" type="image/jpeg" href="ChatGPT Image May 1, 2025, 03_15_26 PM.png">
+  <style>
+    /* Reset & Base Styles */
+/* Reset & Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: #f0f0f0;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header .a {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #c3f7a3;
+}
+
+/* Main Layout */
+main {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 30px auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Sections */
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #4ca1af;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #555;
+  text-align: justify;
+}
+
+/* Feature Cards */
+.feature-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.feature-card {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1 1 calc(33.333% - 20px);
+  min-width: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card h3 {
+  color: #2575fc;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Button Style (for future use) */
+.btn {
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background: #ff6f61;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #e95b50;
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px 10px;
+  background: #2c3e50;
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .feature-card {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .feature-card {
+    flex: 1 1 100%;
+  }
+
+  main {
+    padding: 30px 15px;
+    margin: 20px 10px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  header .a {
+    font-size: 1rem;
+  }
+
+  footer {
+    font-size: 0.85rem;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Book Management</h1>
+    <p class="a">Effortlessly manage your library’s book collection with intuitive tools and advanced features.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Overview</h2>
+      <p>The Book Management module is designed to streamline the organization and administration of your library’s book collection. It offers features like cataloging, advanced search, and inventory tracking to simplify your workflow and improve user satisfaction.</p>
+    </section>
+
+    <section>
+      <h2>Features</h2>
+      <div class="feature-box">
+        <div class="feature-card">
+          <h3>Advanced Cataloging</h3>
+          <p>TriCode Tech's Library Management System incorporates Advanced Cataloging, allowing libraries to meticulously organize their resources. With options to record metadata such as title, author, genre, ISBN, and publication year, it ensures a structured and consistent database. The feature supports batch cataloging for faster data input and integrates seamlessly with external bibliographic databases, simplifying the enrichment process. Custom tags and categories further enhance resource categorization, making it easier for both staff and patrons to locate materials efficiently.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Inventory Tracking</h3>
+          <p>Our system provides real-time Inventory Tracking, offering a transparent overview of the library's collections. It updates resource availability automatically with every borrowing or return transaction. Administrators can easily identify missing or damaged items and generate reports to monitor stock levels and borrowing trends. This feature ensures efficient inventory management, helping libraries maintain order and plan timely acquisitions or replacements.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Custom Tags</h3>
+          <p>The Custom Tags feature enables libraries to categorize their resources in unique ways, improving organization and accessibility. Librarians can create tailored tags—like "New Arrivals", "Science Fiction", or "Bestsellers"—to enhance searchability. Multiple tags can be assigned to a single item, making it discoverable across various categories. This flexibility ensures a personalized and user-friendly browsing experience for patrons.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Borrowing and Returns</h3>
+          <p>Simplify the lending process with Borrowing and Returns functionality. The system tracks loans, assigns due dates, and updates availability status automatically. Automated reminders for overdue items reduce late returns, and patrons can view or renew their loans through their user accounts. For administrators, this feature provides detailed reports on borrowing patterns and overdue materials, facilitating better operational management and accountability.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Search and Filter</h3>
+          <p>With Search and Filter, locating resources has never been easier. The advanced search functionality enables patrons to quickly find books using parameters like title, author, genre, or custom tags. Filters such as availability and location refine search results further, enhancing the user experience. Predictive search suggestions and real-time updates ensure users can access accurate and relevant information effortlessly.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Detailed Reports</h3>
+          <p>The Detailed Reports feature provides libraries with comprehensive data insights. From borrowing trends and popular items to overdue fines and usage statistics, the reports empower administrators to make informed decisions. Visual data representations such as charts and graphs allow easy interpretation of key metrics, aiding in resource allocation, inventory updates, and service improvements. Customizable reporting ensures libraries can focus on the metrics most relevant to their needs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section>
+      <h2>Manage Your Collection</h2>
+      <ul>
+        <li>
+          <span>The Great Gatsby</span>
+          <a href="#" class="btn">Edit</a>
+        </li>
+        <li>
+          <span>1984</span>
+          <a href="#" class="btn">Edit</a>
+        </li>
+        <li>
+          <span>To Kill a Mockingbird</span>
+          <a href="#" class="btn">Edit</a>
+        </li>
+        <li>
+          <span>The Catcher in the Rye</span>
+          <a href="#" class="btn">Edit</a>
+        </li>
+      </ul>
+    </section> -->
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TriCode Tech. All rights reserved.</p>
+  </footer>
+</body>
+</html>

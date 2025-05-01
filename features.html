@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features - TriCode Tech</title>
+  <link rel="icon" type="image/jpeg" href="ChatGPT Image May 1, 2025, 03_15_26 PM.png">
+  <style>
+    /* Global Styles */
+    /* Global Reset & Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Navbar */
+header.navbar {
+  background: linear-gradient(135deg, #4ca1af, #2c3e50);
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header.navbar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+header.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+header.navbar a:hover,
+header.navbar a:focus {
+  color: #ff6f61;
+}
+
+.logo img {
+  height: 60px;
+  border-radius: 50%;
+}
+
+/* Content Section */
+.content {
+  background: #f9f9f9;
+  padding: 60px 20px;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+.content h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  letter-spacing: 1px;
+}
+
+.content p {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 0 auto 40px;
+  max-width: 800px;
+  color: #555;
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 25px 20px;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover,
+.feature-card:focus {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card h2 {
+  color: #4ca1af;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px 20px;
+  background: #2c3e50;
+  color: white;
+  width: 100%;
+  margin-top: 60px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .content h1 {
+    font-size: 2rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+
+  header.navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .feature-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .feature-card p {
+    font-size: 0.95rem;
+  }
+}
+
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="ChatGPT Image May 1, 2025, 03_15_26 PM.png" alt="TriCode Tech Logo">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <!-- <a href="features.html">Features</a> -->
+      <a href="download.html">Download</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="content">
+      <h1>Features</h1>
+      <p>Our Library Management System is designed to revolutionize library operations with cutting-edge tools and functionalities. Explore the powerful features we offer:</p>
+
+      <div class="features-grid">
+        <a href="Book Management.html" class="feature-card">
+          <h2>Book Management</h2>
+          <p>Easily catalog, update, and track books with advanced metadata such as author, genre, and publication year.</p>
+        </a>
+        <a href="Advanced Search.html" class="feature-card">
+          <h2>Advanced Search</h2>
+          <p>Find books, authors, or members quickly with intuitive search filters and suggestions.</p>
+        </a>
+        <a href="Member Profiles.html" class="feature-card">
+          <h2>Member Profiles</h2>
+          <p>Manage member data, borrowing history, and due dates in a secure and efficient manner.</p>
+        </a>
+        <a href="Automated Notifications.html" class="feature-card">
+          <h2>Automated Notifications</h2>
+          <p>Send reminders for reservations, due dates, and overdue books to ensure timely returns.</p>
+        </a>
+        <!-- <a href="barcode-scanning.html" class="feature-card">
+          <h2>Barcode Scanning</h2>
+          <p>Streamline cataloging and checkouts with barcode-enabled functionality.</p>
+        </a>
+        <a href="cloud-storage.html" class="feature-card">
+          <h2>Cloud Storage</h2>
+          <p>Securely back up your library's data for quick recovery and accessibility from anywhere.</p>
+        </a> -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TriCode Tech. All rights reserved.</p>
+  </footer>
+</body>
+</html>

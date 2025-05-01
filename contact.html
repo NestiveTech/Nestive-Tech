@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - TriCode Tech</title>
+  <link rel="icon" type="image/jpeg" href="ChatGPT Image May 1, 2025, 03_15_26 PM.png">
+  <style>
+    /* Global Styles */
+    /* Reset & Global Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background: #f7f9fc;
+  line-height: 1.6;
+}
+
+/* Navbar */
+header.navbar {
+  background: linear-gradient(135deg, #4ca1af, #2c3e50);
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+header.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+header.navbar a:hover {
+  color: #ff6f61;
+}
+
+.logo img {
+  height: 60px;
+  border-radius: 50%;
+}
+
+/* Contact Section */
+.content {
+  padding: 60px 20px;
+  text-align: center;
+  background: linear-gradient(to bottom, #ffffff, #f2f6fa);
+  min-height: calc(100vh - 160px);
+}
+
+.content h1 {
+  font-size: 2.8rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.content p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+/* Contact Form */
+form {
+  max-width: 650px;
+  margin: 0 auto;
+  background: white;
+  padding: 35px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+  text-align: left;
+}
+
+form label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+  color: #333;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+form textarea {
+  height: 120px;
+  resize: none;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #4ca1af;
+  box-shadow: 0 0 6px rgba(76, 161, 175, 0.3);
+  outline: none;
+}
+
+form button {
+  display: inline-block;
+  background: #4ca1af;
+  color: white;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+  background: #2c3e50;
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px 10px;
+  background: #2c3e50;
+  color: white;
+  font-size: 0.95rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .content h1 {
+    font-size: 2rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+
+  form {
+    padding: 25px 20px;
+  }
+
+  header.navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  header.navbar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  header.navbar a {
+    margin-left: 0;
+    font-size: 0.95rem;
+  }
+}
+
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo"><img src="ChatGPT Image May 1, 2025, 03_15_26 PM.png" alt="TriCode Tech Logo"></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <!-- <a href="features.html">Features</a> -->
+      <a href="download.html">Download</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="content">
+      <h1>Contact Us</h1>
+      <p>We would love to hear from you! Whether you have questions, feedback, or need support, feel free to reach out to our team using the form below.</p>
+      <form>
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TriCode Tech. All rights reserved.</p>
+  </footer>
+</body>
+</html>
