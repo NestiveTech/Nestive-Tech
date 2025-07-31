@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Tri-tech Solutions</title>
-  <link rel="icon" type="image/jpeg" href="IMG\ChatGPT Image May 1, 2025, 03_15_26 PM.png">
+  <title>About Us - Nestive Techs</title>
+  <link rel="icon" type="image/jpeg" href="IMG\2.png" />
   <style>
     /* Global Styles */
     /* Global Reset & Base Styles */
@@ -32,9 +32,9 @@ body {
 header.navbar {
   background: linear-gradient(135deg, #4ca1af, #2c3e50);
   color: white;
-  padding-right: 15px;
+  padding-right: 20px;
   padding-left: 10px;
-  padding-top: 5px;
+  padding: 15px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -64,6 +64,8 @@ header.navbar a:focus {
 .logo img {
   height: 60px;
   border-radius: 15%;
+  background-color: #ffffff;
+  display: none;
 }
 
 /* Content Section */
@@ -77,6 +79,31 @@ header.navbar a:focus {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.8s ease-in-out;
 }
+
+.logo1 {
+  text-align: center;
+  perspective: 1000px; /* Enables 3D effect */
+}
+
+.logo1 img {
+  height: 150px;
+  /* border-radius: 15%; */
+  /* background-color: #ffffff; */
+  animation: rotateLeftToRight 3s linear infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes rotateLeftToRight {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+
+
 
 .content h1 {
   font-size: 2.5rem;
@@ -122,12 +149,13 @@ header.navbar a:focus {
 
 /* Footer */
 footer {
-  text-align: center;
-  padding: 15px 20px;
-  background: #2c3e50;
-  color: white;
-  width: 100%;
-  margin-top: 60px;
+    margin-top: 280px;
+    text-align: center;
+    padding: 2px;
+    background: #2c3e50;
+    color: white;
+    width: 100%; /* Full-width footer */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Animation */
@@ -175,7 +203,6 @@ footer {
   }
 }
 
-
     /* Animations */
     @keyframes fadeIn {
       0% {
@@ -191,7 +218,7 @@ footer {
 </head>
 <body>
   <header class="navbar">
-    <div class="logo"><img src="IMG\ChatGPT Image May 1, 2025, 03_15_26 PM.png" alt="TriCode Tech Logo"></div>
+    <div class="logo"><img src="IMG/2.png" alt="Nestive Tech Logo"></div>
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
@@ -203,8 +230,9 @@ footer {
 
   <main>
   <section class="content">
+    <div class="logo1"><img src="IMG/2.png" alt="Nestive Tech Logo"></div>
     <h1>About Us</h1>
-    <p>At <strong>Tri-tech Solutions</strong>, we are passionate about transforming library operations through practical and easy-to-use technology. With a deep understanding of the daily challenges faced by libraries, we develop tailored solutions that automate routine tasks such as book cataloging, circulation management, member tracking, and reporting.</p>
+    <p>At <strong>Nestive Techs</strong>, we are passionate about transforming library operations through practical and easy-to-use technology. With a deep understanding of the daily challenges faced by libraries, we develop tailored solutions that automate routine tasks such as book cataloging, circulation management, member tracking, and reporting.</p>
 
     <p>Whether you're running a school library, a college resource center, or a large public library, our software is built to scale with your needs. We believe that technology should simplify your work, not complicate it. That’s why our tools are designed with user-friendliness, performance, and reliability at their core.</p>
     
@@ -231,14 +259,14 @@ footer {
       </li>
       <li>
         <strong>Affordability:</strong> 
-        We understand budget constraints in educational and public institutions. That’s why Tri-tech Solutions offers competitive pricing plans, with no compromise on features, performance, or quality.
+        We understand budget constraints in educational and public institutions. That’s why Nestive Techs offers competitive pricing plans, with no compromise on features, performance, or quality.
       </li>
     </ul>
   </section>
 </main>
 
 <footer>
-  <p>&copy; 2025 Tri-tech Solutions. All rights reserved. Helping libraries grow smarter, one system at a time.</p>
+  <p>&copy; 2025 Nestive Techs. All rights reserved. Helping libraries grow smarter, one system at a time.</p>
 </footer>
 
 </body>

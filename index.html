@@ -1,223 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home- Tri-tech Solutions</title>
-  <link rel="icon" type="image/jpeg" href="IMG\ChatGPT Image May 1, 2025, 03_15_26 PM.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - Nestive Tech | Smart Software Solutions</title>
+  <link rel="icon" type="image/jpeg" href="IMG\2.png" />
 
   <style>
-    /* Global Styles */
-    /* Global Styles */
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
 
-html {
-  box-sizing: border-box;
-  font-size: 18px;
-  scroll-behavior: smooth;
-}
+    html {
+      font-size: 18px;
+      scroll-behavior: smooth;
+    }
 
-body {
-  font-family: 'Poppins', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  color: #333;
-}
+    body {
+      line-height: 1.6;
+      color: #333;
+    }
 
-/* Navbar */
-header.navbar {
-  background: linear-gradient(to right, #4ca1af, #2c3e50);
-  color: white;
-  padding-right: 15px;
-  padding-left: 10px;
-  padding-top: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  font-size: 20px;
-}
+    header.navbar {
+      background: linear-gradient(to right, #4ca1af, #2c3e50);
+      color: white;
+      padding: 5px 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      font-size: 20px;
+    }
 
-header.navbar a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  font-weight: bold;
-  transition: color 0.3s;
-}
+    header.navbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
 
-header.navbar a:hover,
-header.navbar a:focus {
-  color: #ff6f61;
+    header.navbar a:hover,
+    header.navbar a:focus {
+      color: #ff6f61;
+    }
+
+.logo {
+  text-align: center;
+  perspective: 1000px; /* Enables 3D effect */
+  border-radius: 15%;
+  background-color: #ffffff;
 }
 
 .logo img {
-  height: 60px;
-  border-radius: 15%;
+  height: 50px;
+
+  animation: rotateLeftToRight 3s linear infinite;
+  transform-style: preserve-3d;
 }
 
-/* Hero Section */
-.hero {
-  background: linear-gradient(135deg, #2c3e50, #4ca1af);
-  color: white;
-  text-align: center;
-  padding: 100px 20px;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.button {
-  display: inline-block;
-  padding: 15px 30px;
-  background: #ff6f61;
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-  font-size: 1.1rem;
-  transition: background 0.3s, transform 0.3s;
-}
-
-.button:hover,
-.button:focus {
-  background: white;
-  color: #ff6f61;
-  transform: scale(1.05);
-}
-
-/* Benefits Section */
-.benefits {
-  background: #f9f9f9;
-  padding: 50px 20px;
-}
-
-.benefits h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 2rem;
-}
-
-.benefits ul {
-  list-style-type: none;
-  padding: 0;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.benefits li {
-  margin: 15px 0;
-  padding: 15px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-}
-
-.benefits li:hover {
-  transform: translateY(-5px);
-}
-
-/* Testimonials Section */
-.testimonials {
-  padding: 50px 20px;
-  background: linear-gradient(135deg, #ff6f61, #4ca1af);
-  color: white;
-  text-align: center;
-}
-
-.testimonials h2 {
-  margin-bottom: 30px;
-  font-size: 2rem;
-}
-
-blockquote {
-  margin: 20px auto;
-  font-style: italic;
-  max-width: 700px;
-  position: relative;
-  padding: 15px 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-blockquote:before {
-  content: open-quote;
-  font-size: 2rem;
-  color: white;
-  position: absolute;
-  top: -10px;
-  left: 10px;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 10px 20px;
-  background: #2c3e50;
-  color: white;
-  width: 100%;
-}
-
-/* Keyframes */
-@keyframes fadeIn {
+@keyframes rotateLeftToRight {
   0% {
-    opacity: 0;
+    transform: rotateY(0deg);
   }
   100% {
-    opacity: 1;
+    transform: rotateY(360deg);
   }
 }
 
-/* Responsive Typography */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
 
-  .button {
-    font-size: 1rem;
-    padding: 12px 24px;
-  }
+    .hero {
+      background: linear-gradient(135deg, #2c3e50, #4ca1af);
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
 
-  header.navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
 
-  header.navbar nav {
-    margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-  .benefits h2,
-  .testimonials h2 {
-    font-size: 1.5rem;
-  }
+    .button {
+      display: inline-block;
+      padding: 15px 30px;
+      background: #ff6f61;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .button:hover,
+    .button:focus {
+      background: white;
+      color: #ff6f61;
+      transform: scale(1.05);
+    }
+
+    .intro-video {
+      text-align: center;
+      /* padding: 4px px; */
+      /* background: #f0f0f0;s */
+    }
+
+    .intro-video video {
+      max-width: 20%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .benefits {
+      background: #f9f9f9;
+      padding: 50px 20px;
+    }
+
+    .benefits h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .benefits ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .benefits li {
+      margin: 15px 0;
+      padding: 15px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .benefits li:hover {
+      transform: translateY(-5px);
+    }
+
+    .products {
+      background: #ffffff;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .products h2 {
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .products ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .products li {
+      margin: 15px 0;
+      padding: 15px;
+      background: #f5f5f5;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonials {
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #ff6f61, #4ca1af);
+      color: white;
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    blockquote {
+      margin: 20px auto;
+      font-style: italic;
+      max-width: 700px;
+      position: relative;
+      padding: 15px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      quotes: "“" "”";
+    }
+
+    blockquote:before {
+      content: open-quote;
+      font-size: 2rem;
+      color: white;
+      position: absolute;
+      top: -10px;
+      left: 10px;
+    }
+
+    blockquote::after {
+      content: close-quote;
+      font-size: 2rem;
+      color: white;
+      position: absolute;
+      bottom: -10px;
+      right: 10px;
+    }
+
+    footer {
+    margin-top: 280px;
+    text-align: center;
+    padding: 2px;
+    background: #2c3e50;
+    color: white;
+    width: 100%; /* Full-width footer */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-    /* Keyframes for Animations */
     @keyframes fadeIn {
       0% {
         opacity: 0;
@@ -226,17 +243,45 @@ footer {
         opacity: 1;
       }
     }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .button {
+        font-size: 1rem;
+        padding: 12px 24px;
+      }
+
+      header.navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      header.navbar nav {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .benefits h2,
+      .testimonials h2,
+      .products h2 {
+        font-size: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
   <header class="navbar">
     <div class="logo">
-      <img src="IMG\ChatGPT Image May 1, 2025, 03_15_26 PM.png" alt="Tri-tech Solutions Logo">
+      <img src="IMG/2.png" alt="Nestive Tech Logo" />
     </div>
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
-      <!-- <a href="features.html">Features</a> -->
       <a href="download.html">Download</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -244,49 +289,58 @@ footer {
 
   <main>
     <section class="hero">
-      
-      <h1>Welcome to Tri-tech Solutions</h1>
-      
-      <p>Effortlessly manage and organize your library with cutting-edge tools. Designed for libraries of all sizes, Tri-tech Solutions is your ultimate solution for efficiency and excellence.</p>
+      <h1>Welcome to Nestive Tech</h1>
+       <!-- Video Section -->
+    <section class="intro-video">
+      <video autoplay loop muted playsinline>
+        <source src="Videos/Generated File July 31, 2025 - 12_49PM.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>At Nestive Tech, we build smart, scalable software solutions — from <strong>LibNest</strong> to custom tools for modern institutions and businesses.</p>
       <a href="download.html" class="button">Download Now</a>
     </section>
 
+   
+    </section>
+
     <section class="benefits">
-      <h2>Why Choose Tri-tech Solutions?</h2>
+      <h2>Why Choose Nestive Tech?</h2>
       <ul>
         <li><strong>Modern Features:</strong> Automated cataloging, advanced reporting, and more.</li>
         <li><strong>Cost-Effective:</strong> Save resources and reduce manual effort.</li>
         <li><strong>Eco-Friendly:</strong> Go digital, reduce waste, and maximize sustainability.</li>
-        <li><strong>24/7 Accessibility:</strong> Access library tools from anywhere.</li>
+        <li><strong>24/7 Accessibility:</strong> Access tools and data from anywhere, anytime.</li>
       </ul>
-    <!-- </section> -->
 
-    <!-- <section class="testimonials"> -->
-      <h2>Shaping the Future of Library Management</h2>
+      <h2>Shaping the Future of Tech Solutions</h2>
       <ul>
-        <li>Tri-tech Solutions is built to empower libraries of all sizes — from schools to public institutions — with intuitive, reliable, and efficient tools.</li>
-      </ul>
-      <ul>
-        <li>We're committed to delivering features that reduce workload, enhance accessibility, and modernize library experiences for staff and readers alike.</li>
+        <li>Nestive Tech empowers institutions of all kinds — schools, offices, public sectors — with intuitive, reliable, and efficient digital tools.</li>
+        <li>We reduce workloads, enhance access, and modernize user experiences for teams and clients alike.</li>
       </ul>
     </section>
-    
+
+    <section class="products">
+      <h2>Our Products</h2>
+      <ul>
+        <li><strong>LibNest – Library Management System:</strong> Streamlined cataloging, issuing, reporting & more.</li>
+        <li><strong>Inventory Management:</strong> Real-time stock control for schools and offices.</li>
+        <li><strong>Custom Web Solutions:</strong> Bespoke platforms tailored to your needs.</li>
+      </ul>
+    </section>
+
     <section class="testimonials">
-      <h2>Our Promise to Libraries</h2>
+      <h2>Our Promise to Clients</h2>
       <blockquote>
-        Tri-tech Solutions is more than software — it’s a commitment to helping libraries thrive in the digital age.
+        Nestive Tech is more than software — it’s a commitment to helping organizations thrive in the digital age.
       </blockquote>
       <blockquote>
-        As we grow, so will our features — shaped by feedback, driven by innovation, and focused on what libraries need most.
+        As we grow, so will our products — shaped by feedback, driven by innovation, and focused on what users need most.
       </blockquote>
     </section>
-
   </main>
 
   <footer>
-    <p>&copy; 2025 Tri-tech Solutions. All rights reserved.</p>
+    <p>&copy; 2025 Nestive Tech. Empowering Digital Solutions for All.</p>
   </footer>
 </body>
 </html>
-
-

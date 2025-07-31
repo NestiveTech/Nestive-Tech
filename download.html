@@ -3,212 +3,206 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Download - Tri-tech Solutions</title>
-  <link rel="icon" type="image/jpeg" href="IMG\ChatGPT Image May 1, 2025, 03_15_26 PM.png">
+  <title>Download - Nestive Tech</title>
+  <link rel="icon" type="image/jpeg" href="IMG\2.png" />
   <style>
-    /* Global Styles */
     /* Reset & Global Styles */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background: #f7f9fc;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    header.navbar {
+      background: linear-gradient(135deg, #4ca1af, #2c3e50);
+      color: white;
+      padding: 5px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
+      font-size: 20px;
+    }
+    header.navbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    header.navbar a:hover { color: #ff6f61; }
+  
+    /* Content Section */
+    .content {
+      padding: 60px 20px;
+      text-align: center;
+      background: linear-gradient(to bottom, #ffffff, #f2f6fa);
+      animation: fadeIn 1s ease-in-out;
+    }
+    .content h1 {
+      font-size: 2.8rem;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+    .content h2 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+      margin-top: 40px;
+    }
+    .content p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    /* Button */
+    .button {
+      display: inline-block;
+      padding: 15px 35px;
+      background: #ff6f61;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .button:hover {
+      background: white;
+      color: #ff6f61;
+      font-weight: bolder;
+      transform: scale(1.01);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+    .logo {
+      text-align: center;
+      perspective: 1000px; /* Enables 3D effect */
+      border-radius: 15%;
+      background-color: #ffffff;
+    }
+
+    .logo img {
+      height: 50px;
+
+      animation: rotateLeftToRight 3s linear infinite;
+      transform-style: preserve-3d;
+    }
+
+    @keyframes rotateLeftToRight {
+      0% {
+        transform: rotateY(0deg);
+      }
+      100% {
+        transform: rotateY(360deg);
+      }
+    }
+
+    /* Lists */
+    .content ul {
+      list-style: none;
+      padding: 0;
+      margin: 30px auto;
+      max-width: 650px;
+      text-align: left;
+    }
+    .content li {
+      margin: 15px 0;
+      padding: 15px 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .content li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Features Link */
+    a.features-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #ff6f61;
+      font-weight: bold;
+      text-decoration: underline;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    a.features-link:hover {
+      color: #b43125;
+      transform: scale(1.05);
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Intro Video Section */
+    .intro-video {
+      padding: 40px 20px;
+      text-align: center;
+      /* background: linear-gradient(to bottom, #ffffff, #f2f6fa); */
+    }
+    .intro-video video {
+      max-width: 50%;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer */
+    footer {
+    margin-top: 280px;
+    text-align: center;
+    padding: 2px;
+    background: #2c3e50;
+    color: white;
+    width: 100%; /* Full-width footer */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
-body {
-  font-family: 'Poppins', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #333;
-  background: #f7f9fc;
-  line-height: 1.6;
-}
-
-/* Navbar */
-header.navbar {
-  background: linear-gradient(135deg, #4ca1af, #2c3e50);
-  color: white;
-  padding-right: 15px;
-  padding-left: 10px;
-  padding-top: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  flex-wrap: wrap;
-  font-size: 20px;
-}
-
-header.navbar a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-header.navbar a:hover {
-  color: #ff6f61;
-}
-
-.logo img {
-  height: 60px;
-  border-radius: 15%;
-}
-
-/* Content Section */
-.content {
-  padding: 60px 20px;
-  text-align: center;
-  background: linear-gradient(to bottom, #ffffff, #f2f6fa);
-  animation: fadeIn 1s ease-in-out;
-}
-
-.content h1 {
-  font-size: 2.8rem;
-  color: #2c3e50;
-  margin-bottom: 15px;
-}
-
-.content h2 {
-  font-size: 1.8rem;
-  color: #2c3e50;
-  margin-top: 40px;
-}
-
-.content p {
-  font-size: 1.1rem;
-  color: #555;
-  max-width: 700px;
-  margin: 0 auto 40px;
-}
-
-/* Download Button */
-.button {
-  display: inline-block;
-  padding: 15px 35px;
-  background: #ff6f61;
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-  font-size: 1.1rem;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.button:hover {
-  background: white;
-  color: #ff6f61;
-  font-weight: bolder;
-  transform: scale(1.01);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-}
-
-/* Lists */
-.content ul {
-  list-style: none;
-  padding: 0;
-  margin: 30px auto;
-  max-width: 650px;
-  text-align: left;
-}
-
-.content li {
-  margin: 15px 0;
-  padding: 15px 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.content li:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Features Link */
-a.features-link {
-  display: inline-block;
-  margin-top: 20px;
-  color: #ff6f61;
-  font-weight: bold;
-  text-decoration: underline;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-a.features-link:hover {
-  color: #b43125;
-  transform: scale(1.05);
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 10px;
-  background: #2c3e50;
-  color: white;
-  font-size: 0.95rem;
-}
-
-/* Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  header.navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  header.navbar nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  header.navbar a {
-    margin-left: 0;
-    font-size: 0.95rem;
-  }
-
-  .content h1 {
-    font-size: 2rem;
-  }
-
-  .content h2 {
-    font-size: 1.4rem;
-  }
-
-  .button {
-    padding: 12px 25px;
-    font-size: 1rem;
-  }
-
-  .content ul {
-    padding: 0 10px;
-  }
-}
-
-
+    /* Responsive */
+    @media (max-width: 768px) {
+      header.navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      header.navbar nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      header.navbar a {
+        margin-left: 0;
+        font-size: 0.95rem;
+      }
+      .content h1 { font-size: 2rem; }
+      .content h2 { font-size: 1.4rem; }
+      .button {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+      .content ul {
+        padding: 0 10px;
+      }
+    }
   </style>
 </head>
 <body>
   <header class="navbar">
-    <div class="logo"><img src="IMG\ChatGPT Image May 1, 2025, 03_15_26 PM.png" alt="TriCode Tech Logo"></div>
+    <div class="logo">
+      <img src="IMG/2.png" alt="Nestive Tech Logo">
+    </div>
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
-      <!-- <a href="features.html">Features</a> -->
       <a href="download.html">Download</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -216,16 +210,27 @@ footer {
 
   <main>
     <section class="content">
+      
       <h1>Download</h1>
       <p>Enhance your library operations with our cutting-edge tools. Download the latest version of LibNest today and take the first step toward streamlined management.</p>
-      <!-- <a href="UnderMaintenance.html" class="button">Download LibNest Installer Now</a> -->
+      <!-- ✅ Intro Video Section -->
+    <section class="intro-video">
+      <video autoplay loop muted playsinline>
+        <source src="videos/Libnest.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <br>
+    </section>
       <a href="https://github.com/kunaldas531/LibNest/releases/download/Beta/LibNest.setup.msi" class="button">Download LibNest Installer Now</a>
-      <br> 
-      <br>  
+      <br><br>
       <a href="https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-8.0.42.0.msi" class="button">Download MySQL Installer Now</a>
-      
       <h2><a href="features.html" class="features-link">Click Here</a> To watch Features Of LibNest</h2>
+    </section>
 
+    
+
+    <!-- ✅ Continue Content -->
+    <section class="content">
       <h2>What's Included?</h2>
       <ul>
         <li>Full installation guide with step-by-step instructions</li>
@@ -244,7 +249,7 @@ footer {
   </main>
 
   <footer>
-    <p>&copy; 2025 TriCode Tech. All rights reserved.</p>
+    <p>&copy; 2025 Nestive Tech. All rights reserved.</p>
   </footer>
 </body>
 </html>
