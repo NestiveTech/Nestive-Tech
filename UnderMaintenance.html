@@ -3,174 +3,513 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Under Maintenance</title>
+  <title>Under Maintenance - Nestive Tech</title>
   <link rel="icon" type="image/jpeg" href="IMG\2.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.8);
+      --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.2);
+      --shadow-glow: 0 0 40px rgba(79, 172, 254, 0.3);
+    }
+
     body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Inter', Arial, sans-serif;
-  background: linear-gradient(to bottom right, #6a11cb, #2575fc);
-  color: #fff;
-  text-align: center;
-  overflow: hidden;
-  animation: fadeIn 1.2s ease-in-out;
-}
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--primary-gradient);
+      color: var(--text-primary);
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
 
-/* Container Styling */
-.container {
-  max-width: 600px;
-  padding: 40px 30px;
-  background: rgba(210, 210, 210, 0.293);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
-  animation: fadeInUp 1s ease forwards;
-}
+    /* Animated Background */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+      animation: backgroundFlow 20s ease-in-out infinite;
+    }
 
-/* Typography */
-h1 {
-  font-size: 2.8rem;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
-}
+    @keyframes backgroundFlow {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(-20px, -20px) scale(1.02); }
+      66% { transform: translate(20px, -10px) scale(0.98); }
+    }
 
-p {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-  line-height: 1.6;
-  color: #f0f0f0;
-}
+    /* Floating Particles */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
 
-/* Button */
-.button {
-  display: inline-block;
-  padding: 12px 28px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #fff;
-  background: #ff6f61;
-  border: none;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--text-secondary);
+      border-radius: 50%;
+      animation: float 15s infinite ease-in-out;
+    }
 
-.button:hover {
-  background: #e95b50;
-  transform: scale(1.05);
-  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.3);
-}
+    .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .particle:nth-child(2) { left: 20%; animation-delay: 2s; }
+    .particle:nth-child(3) { left: 30%; animation-delay: 4s; }
+    .particle:nth-child(4) { left: 40%; animation-delay: 6s; }
+    .particle:nth-child(5) { left: 50%; animation-delay: 8s; }
+    .particle:nth-child(6) { left: 60%; animation-delay: 10s; }
+    .particle:nth-child(7) { left: 70%; animation-delay: 12s; }
+    .particle:nth-child(8) { left: 80%; animation-delay: 14s; }
+    .particle:nth-child(9) { left: 90%; animation-delay: 16s; }
 
-/* Spinner */
-.spinner {
-  margin: 30px auto;
-  width: 60px;
-  height: 60px;
-  border: 6px solid rgba(255, 255, 255, 0.3);
-  border-top: 6px solid #fff;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10%, 90% {
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-10vh) rotate(180deg);
+      }
+    }
 
-/* Animations */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    /* Main Container */
+    .container {
+      max-width: 500px;
+      padding: 40px 30px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      animation: fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      position: relative;
+      z-index: 10;
+      overflow: hidden;
+    }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent-gradient);
+      animation: progressBar 3s ease-in-out infinite;
+    }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
+    @keyframes progressBar {
+      0% { transform: translateX(-100%); }
+      50% { transform: translateX(0%); }
+      100% { transform: translateX(100%); }
+    }
 
-  .container {
-    padding: 30px 20px;
-  }
+    /* Logo Section */
+    .logo {
+      text-align: center;
+      perspective: 1000px;
+      margin-bottom: 2rem;
+    }
 
-  p {
-    font-size: 1rem;
-  }
+    .logo img {
+      height: 80px;
+      width: 80px;
+      border-radius: 16px;
+      animation: rotateFloat 8s ease-in-out infinite;
+      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-  .button {
-    padding: 10px 24px;
-    font-size: 0.95rem;
-  }
-}
+    .logo:hover img {
+      transform: scale(1.1) rotateY(180deg);
+      filter: drop-shadow(0 15px 40px rgba(79, 172, 254, 0.4));
+    }
 
+    @keyframes rotateFloat {
+      0%, 100% {
+        transform: translateY(0px) rotateY(0deg);
+      }
+      25% {
+        transform: translateY(-10px) rotateY(90deg);
+      }
+      50% {
+        transform: translateY(0px) rotateY(180deg);
+      }
+      75% {
+        transform: translateY(-5px) rotateY(270deg);
+      }
+    }
+
+    /* Typography */
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff, #4facfe, #00f2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: textGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes textGlow {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.2); }
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: var(--text-primary);
+      opacity: 0.9;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Enhanced Spinner */
+    .spinner-container {
+      margin: 1.5rem auto;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      border-top: 3px solid #4facfe;
+      border-right: 3px solid #00f2fe;
+      border-radius: 50%;
+      animation: advancedSpin 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      position: relative;
+    }
+
+    .spinner::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 45px;
+      height: 45px;
+      border: 2px solid transparent;
+      border-top: 2px solid rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: advancedSpin 1.5s linear infinite reverse;
+    }
+
+    .spinner::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 30px;
+      height: 30px;
+      border: 2px solid transparent;
+      border-top: 2px solid #f093fb;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: advancedSpin 1s ease-in-out infinite;
+    }
+
+    @keyframes advancedSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Progress Status */
+    .progress-status {
+      margin: 1.5rem 0 0.8rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+      margin: 0.8rem 0 1.5rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent-gradient);
+      border-radius: 3px;
+      width: 0%;
+      animation: progressFill 4s ease-in-out infinite;
+    }
+
+    @keyframes progressFill {
+      0% { width: 0%; }
+      50% { width: 75%; }
+      100% { width: 100%; }
+    }
+
+    /* Enhanced Button */
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      background: var(--secondary-gradient);
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(240, 147, 251, 0.3);
+    }
+
+    .button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: all 0.6s ease;
+    }
+
+    .button:hover::before {
+      left: 100%;
+    }
+
+    .button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(240, 147, 251, 0.4);
+    }
+
+    .button:active {
+      transform: translateY(-1px) scale(1.02);
+    }
+
+    /* ETA Section */
+    .eta-section {
+      margin-top: 1.5rem;
+      padding: 1.2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .eta-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .eta-time {
+      font-size: 1.2rem;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
     /* Animations */
-    @keyframes fadeIn {
+    @keyframes fadeInUp {
       0% {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(40px) scale(0.9);
       }
       100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
       }
     }
 
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        margin: 20px;
+        padding: 40px 30px;
       }
-      100% {
-        transform: rotate(360deg);
+
+      .logo img {
+        height: 100px;
+        width: 100px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .button {
+        padding: 14px 28px;
+        font-size: 1rem;
+      }
+
+      .spinner {
+        width: 60px;
+        height: 60px;
       }
     }
 
-.logo {
-  text-align: center;
-  perspective: 1000px; /* Enables 3D effect */
-  border-radius: 15%;
-  /* background-color: #ffffff; */
-}
+    @media (max-width: 480px) {
+      .container {
+        margin: 10px;
+        padding: 30px 20px;
+      }
 
-.logo img {
-  height: 100px;
-  animation: rotateLeftToRight 5s linear infinite;
-  transform-style: preserve-3d;
-}
+      h1 {
+        font-size: 2rem;
+      }
 
-@keyframes rotateLeftToRight {
-  0% {
-    transform: rotateY(0deg);
-  }
-  100% {
-    transform: rotateY(360deg);
-  }
-}
+      .eta-section {
+        padding: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="logo"><img src="IMG/2.png" alt="TriCode Tech Logo"></div>
-    <h1>We're Working On It!</h1>
-    <p>Our site is currently undergoing some exciting updates to serve you better. Please bear with us—we'll be back online shortly!</p>
-    <div class="spinner"></div>
-    <a href="download.html" class="button">Go Back</a>
+  <!-- Floating Particles -->
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
   </div>
+
+  <div class="container">
+    <div class="logo">
+      <img src="IMG/2.png" alt="Nestive Tech Logo">
+    </div>
+    
+    <h1>We're Upgrading!</h1>
+    <div class="subtitle">Something Amazing is Coming</div>
+    <p>Our team is working hard to bring you an enhanced experience. We're implementing exciting new features and improvements that will revolutionize your library management experience.</p>
+    
+    <div class="spinner-container">
+      <div class="spinner"></div>
+    </div>
+    
+    <div class="progress-status">🔧 System Enhancement in Progress...</div>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+    
+    <div class="eta-section">
+      <div class="eta-title">⏰ Estimated Completion</div>
+      <div class="eta-time">Coming Soon</div>
+    </div>
+    
+    <a href="download.html" class="button">← Go Back Home</a>
+  </div>
+
+  <script>
+    // Dynamic progress updates
+    const progressMessages = [
+      "🔧 Updating system components...",
+      "⚡ Optimizing performance...",
+      "🎨 Enhancing user interface...",
+      "🔒 Strengthening security...",
+      "📊 Upgrading database...",
+      "🚀 Finalizing improvements..."
+    ];
+
+    let messageIndex = 0;
+    const progressStatus = document.querySelector('.progress-status');
+
+    setInterval(() => {
+      progressStatus.style.opacity = '0';
+      setTimeout(() => {
+        progressStatus.textContent = progressMessages[messageIndex];
+        progressStatus.style.opacity = '1';
+        messageIndex = (messageIndex + 1) % progressMessages.length;
+      }, 300);
+    }, 3000);
+
+    // Add subtle mouse movement effects
+    document.addEventListener('mousemove', (e) => {
+      const container = document.querySelector('.container');
+      const x = (e.clientX / window.innerWidth) * 10;
+      const y = (e.clientY / window.innerHeight) * 10;
+      
+      container.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    // Reset position when mouse leaves
+    document.addEventListener('mouseleave', () => {
+      const container = document.querySelector('.container');
+      container.style.transform = 'translate(0, 0)';
+    });
+
+    // Simulate real-time updates
+    const etaTime = document.querySelector('.eta-time');
+    const responses = ['Coming Soon', '2-3 Hours', 'Almost Ready', 'Final Testing'];
+    let responseIndex = 0;
+
+    setInterval(() => {
+      etaTime.style.transform = 'scale(0.8)';
+      setTimeout(() => {
+        etaTime.textContent = responses[responseIndex];
+        etaTime.style.transform = 'scale(1)';
+        responseIndex = (responseIndex + 1) % responses.length;
+      }, 200);
+    }, 5000);
+  </script>
 </body>
 </html>

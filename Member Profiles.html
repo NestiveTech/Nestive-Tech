@@ -3,157 +3,625 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Member Profiles</title>
+  <title>Member Profiles - Nestive Tech | Smart Software Solutions</title>
   <link rel="icon" type="image/jpeg" href="IMG\2.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    /* Global Styles */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: 'Segoe UI', 'Poppins', Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f7fa;
-  color: #333;
-}
+    :root {
+      --primary-gradient: linear-gradient(135deg, #66c2ea 0%, #2a5577 100%);
+      --secondary-gradient: linear-gradient(135deg, #d12525 0%, #f55757 100%);
+      --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --success-gradient: linear-gradient(135deg, #1bef3b 0%, #62e351 100%);
+      --purple-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --orange-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --dark-bg: #0f0f23;
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --card-border: rgba(255, 255, 255, 0.2);
+      --text-light: #8892b0;
+      --text-dark: #2d3748;
+      --white: #ffffff;
+      --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
+      --border-radius: 16px;
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-/* Header */
-header {
-  background: linear-gradient(135deg, #0073e6, #005bb5);
-  color: #fff;
-  padding: 2rem 1rem;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
 
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  letter-spacing: 1px;
-}
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      color: var(--text-dark);
+      background: linear-gradient(135deg, #66c2ea 0%, #2a5577 100%);
+      min-height: 100vh;
+    }
 
-/* Section Content */
-section {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 30px 25px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-  animation: fadeIn 0.7s ease-in-out;
-}
+    /* Enhanced Navbar */
+    header.navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 15, 35, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+    }
 
-section h2 {
-  color: #0073e6;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-}
+    header.navbar.scrolled {
+      background: rgba(15, 15, 35, 0.98);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
 
-section p {
-  font-size: 1.05rem;
-  color: #555;
-}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      perspective: 1000px;
+    }
 
-section ul {
-  margin: 20px 0;
-  padding-left: 20px;
-}
+    .logo img {
+      height: 45px;
+      width: 45px;
+      border-radius: 12px;
+      animation: floatRotate 6s ease-in-out infinite;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+      transition: var(--transition);
+    }
 
-section ul li {
-  margin-bottom: 12px;
-  font-size: 1rem;
-}
+    .logo:hover img {
+      transform: scale(1.1) rotateY(180deg);
+    }
 
-section ul li strong {
-  color: #2c3e50;
-}
+    @keyframes floatRotate {
+      0%, 100% {
+        transform: translateY(0px) rotateY(0deg);
+      }
+      33% {
+        transform: translateY(-8px) rotateY(120deg);
+      }
+      66% {
+        transform: translateY(4px) rotateY(240deg);
+      }
+    }
 
-/* Call to Action Box */
-.cta {
-  margin: 30px 0 0;
-  padding: 20px;
-  background: #e6f3ff;
-  border-left: 5px solid #0073e6;
-  border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-}
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
 
-.cta strong {
-  color: #0073e6;
-  font-weight: 600;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      position: relative;
+      transition: var(--transition);
+      overflow: hidden;
+    }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 15px;
-  background: #2c3e50;
-  color: white;
-  font-size: 0.9rem;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gradient);
+      transition: var(--transition);
+      z-index: -1;
+    }
 
-/* Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    nav a:hover::before {
+      left: 0;
+    }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 2rem;
-  }
+    nav a:hover {
+      transform: translateY(-2px);
+      color: white;
+    }
 
-  section {
-    padding: 25px 15px;
-  }
+    /* Hero Section */
+    .hero {
+      background: var(--primary-gradient);
+      color: white;
+      text-align: center;
+      padding: 140px 2rem 80px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-  section h2 {
-    font-size: 1.5rem;
-  }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
 
-  section p,
-  section ul li {
-    font-size: 1rem;
-  }
-}
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
 
+    .hero-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin: 0 auto 2rem;
+      animation: iconFloat 3s ease-in-out infinite;
+      box-shadow: 0 20px 40px rgba(79, 172, 254, 0.3);
+    }
+
+    @keyframes iconFloat {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff, #a8edea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: slideInUp 1s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      font-weight: 400;
+      animation: slideInUp 1s ease-out 0.2s both;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Main Content */
+    .main-content {
+      background: var(--card-bg);
+      margin: 2rem;
+      padding: 4rem 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .feature-overview h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+    }
+
+    .feature-overview > p {
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      margin-bottom: 2rem;
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Feature List */
+    .features-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    .feature-item {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--card-border);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--accent-gradient);
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
+
+    .feature-item:nth-child(1)::before {
+      background: var(--secondary-gradient);
+    }
+
+    .feature-item:nth-child(2)::before {
+      background: var(--success-gradient);
+    }
+
+    .feature-item:nth-child(3)::before {
+      background: var(--purple-gradient);
+    }
+
+    .feature-item:nth-child(4)::before {
+      background: var(--orange-gradient);
+    }
+
+    .feature-item:nth-child(5)::before {
+      background: var(--accent-gradient);
+    }
+
+    .feature-item:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .feature-item strong {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .feature-item:nth-child(1) strong {
+      background: var(--secondary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-item:nth-child(2) strong {
+      background: var(--success-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-item:nth-child(3) strong {
+      background: var(--purple-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-item:nth-child(4) strong {
+      background: var(--orange-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-item:nth-child(5) strong {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* CTA Section */
+    .cta {
+      background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1));
+      border: 2px solid rgba(79, 172, 254, 0.2);
+      border-radius: var(--border-radius);
+      padding: 2.5rem;
+      margin-top: 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(79, 172, 254, 0.1), transparent);
+      transition: var(--transition);
+    }
+
+    .cta:hover::before {
+      left: 100%;
+    }
+
+    .cta h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cta p {
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      padding: 2rem;
+      background: var(--dark-bg);
+      color: white;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+
+    /* Animations */
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Scroll animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition);
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered animation for feature items */
+    .feature-item:nth-child(1) {
+      animation: slideInUp 0.6s ease-out 0.1s both;
+    }
+
+    .feature-item:nth-child(2) {
+      animation: slideInUp 0.6s ease-out 0.2s both;
+    }
+
+    .feature-item:nth-child(3) {
+      animation: slideInUp 0.6s ease-out 0.3s both;
+    }
+
+    .feature-item:nth-child(4) {
+      animation: slideInUp 0.6s ease-out 0.4s both;
+    }
+
+    .feature-item:nth-child(5) {
+      animation: slideInUp 0.6s ease-out 0.5s both;
+    }
+
+    /* Enhanced Mobile Responsiveness */
+    @media (max-width: 768px) {
+      header.navbar {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav {
+        gap: 1rem;
+      }
+
+      nav a {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding: 120px 1rem 60px;
+      }
+
+      .hero-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+      }
+
+      .main-content {
+        margin: 1rem;
+        padding: 2rem 1rem;
+      }
+
+      .features-list {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .feature-item {
+        padding: 1.5rem;
+      }
+
+      .cta {
+        padding: 2rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .feature-overview h2 {
+        font-size: 1.5rem;
+      }
+
+      .feature-item strong {
+        font-size: 1.1rem;
+      }
+
+      .cta h3 {
+        font-size: 1.3rem;
+      }
+
+      .cta p {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Member Profiles</h1>
-  </header>
-  <section>
-    <h2>Feature Overview</h2>
-    <p>Our Member Profiles system is a secure and comprehensive solution for managing member data effectively. It provides:</p>
-    <ul>
-      <li><strong>Personal Information:</strong> Maintain an up-to-date record of user details, including name, contact information, and membership ID.</li>
-      <li><strong>Borrowing History:</strong> View a detailed history of books and resources borrowed by each member.</li>
-      <li><strong>Due Date Tracking:</strong> Keep track of upcoming due dates to ensure timely returns and reduce fines.</li>
-      <li><strong>Membership Status:</strong> Monitor active, inactive, or expired memberships for better resource allocation.</li>
-      <li><strong>Data Security:</strong> All member information is protected with robust encryption to ensure privacy.</li>
-    </ul>
-    <div class="cta">
-      <p><strong>Why Use Member Profiles?</strong> This feature streamlines library management, improves organization, and enhances the overall user experience for both staff and members.</p>
+  <header class="navbar">
+    <div class="logo">
+      <img src="IMG/2.png" alt="Nestive Tech Logo" />
     </div>
-  </section>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="features.html">Features</a>
+      <a href="download.html">Download</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-icon">👥</div>
+        <h1>Member Profiles</h1>
+        <p>Comprehensive member management system designed to streamline user data and enhance library operations with secure, efficient profile handling.</p>
+      </div>
+    </section>
+
+    <section class="main-content animate-on-scroll">
+      <div class="feature-overview">
+        <h2>Feature Overview</h2>
+        <p>Our Member Profiles system is a secure and comprehensive solution for managing member data effectively. It provides advanced functionality for tracking, organizing, and maintaining member information with enterprise-level security.</p>
+        
+        <div class="features-list">
+          <div class="feature-item">
+            <strong>Personal Information</strong>
+            Maintain up-to-date records of user details, including name, contact information, membership ID, and demographic data with encrypted storage.
+          </div>
+
+          <div class="feature-item">
+            <strong>Borrowing History</strong>
+            Access detailed history of books and resources borrowed by each member, including dates, return status, and usage patterns.
+          </div>
+
+          <div class="feature-item">
+            <strong>Due Date Tracking</strong>
+            Monitor upcoming due dates with automated alerts to ensure timely returns, reduce fines, and improve collection availability.
+          </div>
+
+          <div class="feature-item">
+            <strong>Membership Status</strong>
+            Track active, inactive, or expired memberships with real-time status updates for better resource allocation and access control.
+          </div>
+
+          <div class="feature-item">
+            <strong>Data Security</strong>
+            All member information is protected with robust encryption, secure authentication, and privacy compliance to ensure complete data protection.
+          </div>
+        </div>
+
+        <div class="cta">
+          <h3>Why Use Member Profiles?</h3>
+          <p>This feature streamlines library management, improves organizational efficiency, and enhances the overall user experience for both staff and members. Experience seamless member management with our intelligent profile system.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <p>&copy; 2025 Nestive Tech. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>

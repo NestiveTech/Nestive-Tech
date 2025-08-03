@@ -5,272 +5,504 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home - Nestive Tech | Smart Software Solutions</title>
   <link rel="icon" type="image/jpeg" href="IMG\2.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', Arial, sans-serif;
+    }
+
+    :root {
+      --primary-gradient: linear-gradient(135deg, #66c2ea 0%, #2a5577 100%);
+      --secondary-gradient: linear-gradient(135deg, #d12525 0%, #f55757 100%);
+      --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --dark-bg: #0f0f23;
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --card-border: rgba(255, 255, 255, 0.2);
+      --text-light: #8892b0;
+      --text-dark: #2d3748;
+      --white: #ffffff;
+      --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
+      --border-radius: 16px;
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     html {
-      font-size: 18px;
+      font-size: 16px;
       scroll-behavior: smooth;
     }
 
     body {
-      line-height: 1.6;
-      color: #333;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      color: var(--text-dark);
+      background: linear-gradient(135deg, #66c2ea 0%, #2a5577 100%);
+      min-height: 100vh;
     }
 
+    /* Enhanced Navbar */
     header.navbar {
-      background: linear-gradient(to right, #4ca1af, #2c3e50);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 15, 35, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       color: white;
-      padding: 5px 15px;
+      padding: 1rem 2rem;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      font-size: 20px;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
     }
 
-    header.navbar a {
+    header.navbar.scrolled {
+      background: rgba(15, 15, 35, 0.98);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      perspective: 1000px;
+    }
+
+    .logo img {
+      height: 45px;
+      width: 45px;
+      border-radius: 12px;
+      animation: floatRotate 6s ease-in-out infinite;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+      transition: var(--transition);
+    }
+
+    .logo:hover img {
+      transform: scale(1.1) rotateY(180deg);
+    }
+
+    @keyframes floatRotate {
+      0%, 100% {
+        transform: translateY(0px) rotateY(0deg);
+      }
+      33% {
+        transform: translateY(-8px) rotateY(120deg);
+      }
+      66% {
+        transform: translateY(4px) rotateY(240deg);
+      }
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
       color: white;
       text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-      transition: color 0.3s;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      position: relative;
+      transition: var(--transition);
+      overflow: hidden;
     }
 
-    header.navbar a:hover,
-    header.navbar a:focus {
-      color: #ff6f61;
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gradient);
+      transition: var(--transition);
+      z-index: -1;
     }
 
-.logo {
-  text-align: center;
-  perspective: 1000px; /* Enables 3D effect */
-  border-radius: 15%;
-  background-color: #ffffff;
-}
+    nav a:hover::before {
+      left: 0;
+    }
 
-.logo img {
-  height: 50px;
+    nav a:hover {
+      transform: translateY(-2px);
+      color: white;
+    }
 
-  animation: rotateLeftToRight 3s linear infinite;
-  transform-style: preserve-3d;
-}
-
-@keyframes rotateLeftToRight {
-  0% {
-    transform: rotateY(0deg);
-  }
-  100% {
-    transform: rotateY(360deg);
-  }
-}
-
-
+    /* Enhanced Hero Section */
     .hero {
-      background: linear-gradient(135deg, #2c3e50, #4ca1af);
+      background: var(--primary-gradient);
       color: white;
       text-align: center;
-      padding: 100px 20px;
-      animation: fadeIn 1s ease-in-out;
+      padding: 140px 2rem 80px;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
     }
 
     .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff, #a8edea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: slideInUp 1s ease-out;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 1.25rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+      font-weight: 400;
+      animation: slideInUp 1s ease-out 0.2s both;
     }
 
-    .button {
-      display: inline-block;
-      padding: 15px 30px;
-      background: #ff6f61;
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      transition: background 0.3s, transform 0.3s;
-    }
-
-    .button:hover,
-    .button:focus {
-      background: white;
-      color: #ff6f61;
-      transform: scale(1.05);
-    }
-
+    /* Enhanced Video Section */
     .intro-video {
-      text-align: center;
-      /* padding: 4px px; */
-      /* background: #f0f0f0;s */
+      margin: 2rem 0;
+      animation: slideInUp 1s ease-out 0.4s both;
     }
 
     .intro-video video {
-      max-width: 20%;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      max-width: min(400px, 80vw);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-soft);
+      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+      transition: var(--transition);
     }
 
-    .benefits {
-      background: #f9f9f9;
-      padding: 50px 20px;
+    .intro-video video:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-hover);
     }
 
-    .benefits h2 {
+    /* Enhanced Button */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2.5rem;
+      background: var(--secondary-gradient);
+      color: rgb(249, 251, 248);
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+      animation: slideInUp 1s ease-out 0.6s both;
+      box-shadow: 0 8px 25px rgba(245, 87, 108, 0.3);
+    }
+
+    .button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1bef3b, #62e351);
+      transition: var(--transition);
+      z-index: -1;
+    }
+
+    .button:hover::before {
+      left: 0;
+    }
+
+    .button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(245, 87, 108, 0.4);
+    }
+
+    /* Enhanced Sections */
+    .benefits, .products {
+      background: rgba(255, 255, 255, 0.95);
+      margin: 2rem;
+      padding: 4rem 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .benefits h2, .products h2 {
       text-align: center;
-      margin-bottom: 30px;
-      font-size: 2rem;
+      margin-bottom: 3rem;
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 700;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
     }
 
-    .benefits ul {
-      list-style-type: none;
-      padding: 0;
-      max-width: 800px;
+    .benefits h2::after, .products h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--accent-gradient);
+      border-radius: 2px;
+    }
+
+    .benefits ul, .products ul {
+      list-style: none;
+      max-width: 1000px;
       margin: 0 auto;
+      display: grid;
+      gap: 1.5rem;
     }
 
-    .benefits li {
-      margin: 15px 0;
-      padding: 15px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
+    .benefits li, .products li {
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--card-border);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
-    .benefits li:hover {
-      transform: translateY(-5px);
+    .benefits li::before, .products li::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent-gradient);
+      transform: scaleY(0);
+      transition: var(--transition);
     }
 
-    .products {
-      background: #ffffff;
-      padding: 50px 20px;
-      text-align: center;
+    .benefits li:hover::before, .products li:hover::before {
+      transform: scaleY(1);
     }
 
-    .products h2 {
-      margin-bottom: 30px;
-      font-size: 2rem;
+    .benefits li:hover, .products li:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(102, 126, 234, 0.3);
     }
 
-    .products ul {
-      list-style-type: none;
-      padding: 0;
-      max-width: 800px;
-      margin: 0 auto;
+    .benefits li strong, .products li strong {
+      color: #4facfe;
+      font-weight: 600;
     }
 
-    .products li {
-      margin: 15px 0;
-      padding: 15px;
-      background: #f5f5f5;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
+    /* Enhanced Testimonials */
     .testimonials {
-      padding: 50px 20px;
-      background: linear-gradient(135deg, #ff6f61, #4ca1af);
+      margin: 2rem;
+      padding: 4rem 2rem;
+      background: var(--dark-bg);
       color: white;
       text-align: center;
+      border-radius: var(--border-radius);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--primary-gradient);
+      opacity: 0.9;
+      z-index: 1;
+    }
+
+    .testimonials > * {
+      position: relative;
+      z-index: 2;
     }
 
     .testimonials h2 {
-      margin-bottom: 30px;
-      font-size: 2rem;
+      margin-bottom: 3rem;
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 700;
     }
 
     blockquote {
-      margin: 20px auto;
+      margin: 2rem auto;
       font-style: italic;
-      max-width: 700px;
-      position: relative;
-      padding: 15px 20px;
+      max-width: 800px;
+      padding: 2rem;
       background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      quotes: "“" "”";
+      border-radius: var(--border-radius);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      position: relative;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      transition: var(--transition);
     }
 
-    blockquote:before {
-      content: open-quote;
-      font-size: 2rem;
-      color: white;
+    blockquote:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    blockquote::before, blockquote::after {
+      content: '"';
+      font-size: 4rem;
+      font-family: Georgia, serif;
+      color: rgba(255, 255, 255, 0.3);
       position: absolute;
+    }
+
+    blockquote::before {
       top: -10px;
-      left: 10px;
+      left: 20px;
     }
 
     blockquote::after {
-      content: close-quote;
-      font-size: 2rem;
-      color: white;
-      position: absolute;
-      bottom: -10px;
-      right: 10px;
+      bottom: -40px;
+      right: 20px;
     }
 
+    /* Enhanced Footer */
     footer {
-    margin-top: 280px;
-    text-align: center;
-    padding: 2px;
-    background: #2c3e50;
-    color: white;
-    width: 100%; /* Full-width footer */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
+      margin-top: 2rem;
+      text-align: center;
+      padding: 2rem;
+      background: var(--dark-bg);
+      color: white;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
 
-    @keyframes fadeIn {
-      0% {
+    /* Animations */
+    @keyframes slideInUp {
+      from {
         opacity: 0;
+        transform: translateY(30px);
       }
-      100% {
+      to {
         opacity: 1;
+        transform: translateY(0);
       }
     }
 
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Enhanced Mobile Responsiveness */
     @media (max-width: 768px) {
+      header.navbar {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav {
+        gap: 1rem;
+      }
+
+      nav a {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding: 120px 1rem 60px;
+        min-height: auto;
+      }
+
+      .benefits, .products, .testimonials {
+        margin: 1rem;
+        padding: 2rem 1rem;
+      }
+
+      .intro-video video {
+        max-width: 90vw;
+      }
+
+      blockquote {
+        padding: 1.5rem;
+        margin: 1rem auto;
+      }
+
+      blockquote::before, blockquote::after {
+        font-size: 3rem;
+      }
+    }
+
+    @media (max-width: 480px) {
       .hero h1 {
         font-size: 2rem;
       }
 
-      .button {
+      .hero p {
         font-size: 1rem;
-        padding: 12px 24px;
       }
 
-      header.navbar {
-        flex-direction: column;
-        align-items: flex-start;
+      .button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
       }
+    }
 
-      header.navbar nav {
-        margin-top: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
+    /* Scroll animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition);
+    }
 
-      .benefits h2,
-      .testimonials h2,
-      .products h2 {
-        font-size: 1.5rem;
-      }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -289,21 +521,23 @@
 
   <main>
     <section class="hero">
-      <h1>Welcome to Nestive Tech</h1>
-       <!-- Video Section -->
-    <section class="intro-video">
-      <video autoplay loop muted playsinline>
-        <source src="Videos/Generated File July 31, 2025 - 12_49PM.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <p>At Nestive Tech, we build smart, scalable software solutions — from <strong>LibNest</strong> to custom tools for modern institutions and businesses.</p>
-      <a href="download.html" class="button">Download Now</a>
+      <div class="hero-content">
+        <h1>Welcome to Nestive Tech</h1>
+        
+        <!-- Video Section -->
+        <section class="intro-video">
+          <video autoplay loop muted playsinline>
+            <source src="Videos/Generated File July 31, 2025 - 12_49PM.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </section>
+        
+        <p>At Nestive Tech, we build smart, scalable software solutions — from <strong>LibNest</strong> to custom tools for modern institutions and businesses.</p>
+        <a href="download.html" class="button">Download Now</a>
+      </div>
     </section>
 
-   
-    </section>
-
-    <section class="benefits">
+    <section class="benefits animate-on-scroll">
       <h2>Why Choose Nestive Tech?</h2>
       <ul>
         <li><strong>Modern Features:</strong> Automated cataloging, advanced reporting, and more.</li>
@@ -319,7 +553,7 @@
       </ul>
     </section>
 
-    <section class="products">
+    <section class="products animate-on-scroll">
       <h2>Our Products</h2>
       <ul>
         <li><strong>LibNest – Library Management System:</strong> Streamlined cataloging, issuing, reporting & more.</li>
@@ -328,10 +562,10 @@
       </ul>
     </section>
 
-    <section class="testimonials">
+    <section class="testimonials animate-on-scroll">
       <h2>Our Promise to Clients</h2>
       <blockquote>
-        Nestive Tech is more than software — it’s a commitment to helping organizations thrive in the digital age.
+        Nestive Tech is more than software — it's a commitment to helping organizations thrive in the digital age.
       </blockquote>
       <blockquote>
         As we grow, so will our products — shaped by feedback, driven by innovation, and focused on what users need most.
@@ -342,5 +576,35 @@
   <footer>
     <p>&copy; 2025 Nestive Tech. Empowering Digital Solutions for All.</p>
   </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>

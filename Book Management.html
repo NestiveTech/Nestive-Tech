@@ -3,221 +3,639 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Management</title>
+  <title>Book Management - Nestive Tech | Smart Software Solutions</title>
   <link rel="icon" type="image/jpeg" href="IMG\2.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    /* Reset & Base Styles */
-/* Reset & Base Styles */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  margin: 0;
-  font-family: 'Poppins', Arial, sans-serif;
-  background: #f0f0f0;
-  color: #333;
-  line-height: 1.6;
-}
+    :root {
+      --primary-gradient: linear-gradient(135deg, #66c2ea 0%, #2a5577 100%);
+      --secondary-gradient: linear-gradient(135deg, #d12525 0%, #f55757 100%);
+      --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --success-gradient: linear-gradient(135deg, #1bef3b 0%, #62e351 100%);
+      --purple-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --orange-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --book-gradient: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
+      --catalog-gradient: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      --dark-bg: #0f0f23;
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --card-border: rgba(255, 255, 255, 0.2);
+      --text-light: #8892b0;
+      --text-dark: #2d3748;
+      --white: #ffffff;
+      --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
+      --border-radius: 16px;
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-/* Header */
-header {
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  color: white;
-  padding: 30px 20px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
 
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-}
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      color: var(--text-dark);
+      background: linear-gradient(135deg, #66c2ea 0%, #2a5577 100%);
+      min-height: 100vh;
+    }
 
-header .a {
-  margin-top: 10px;
-  font-size: 1.1rem;
-  color: #eccfff;
-  text-align: center;
-}
+    /* Enhanced Navbar */
+    header.navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 15, 35, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+    }
 
-/* Main Layout */
-main {
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: 30px auto;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
+    header.navbar.scrolled {
+      background: rgba(15, 15, 35, 0.98);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
 
-/* Sections */
-section {
-  margin-bottom: 40px;
-}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      perspective: 1000px;
+    }
 
-h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #4ca1af;
-}
+    .logo img {
+      height: 45px;
+      width: 45px;
+      border-radius: 12px;
+      animation: floatRotate 6s ease-in-out infinite;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+      transition: var(--transition);
+    }
 
-p {
-  font-size: 1.1rem;
-  color: #555;
-  text-align: justify;
-}
+    .logo:hover img {
+      transform: scale(1.1) rotateY(180deg);
+    }
 
-/* Feature Cards */
-.feature-box {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-}
+    @keyframes floatRotate {
+      0%, 100% {
+        transform: translateY(0px) rotateY(0deg);
+      }
+      33% {
+        transform: translateY(-8px) rotateY(120deg);
+      }
+      66% {
+        transform: translateY(4px) rotateY(240deg);
+      }
+    }
 
-.feature-card {
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  flex: 1 1 calc(33.333% - 20px);
-  min-width: 280px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
 
-.feature-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      position: relative;
+      transition: var(--transition);
+      overflow: hidden;
+    }
 
-.feature-card h3 {
-  color: #2575fc;
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-}
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gradient);
+      transition: var(--transition);
+      z-index: -1;
+    }
 
-.feature-card p {
-  font-size: 1rem;
-  color: #444;
-}
+    nav a:hover::before {
+      left: 0;
+    }
 
-/* Button Style (for future use) */
-.btn {
-  padding: 10px 18px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: white;
-  background: #ff6f61;
-  border: none;
-  border-radius: 6px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+    nav a:hover {
+      transform: translateY(-2px);
+      color: white;
+    }
 
-.btn:hover {
-  background: #e95b50;
-  transform: scale(1.05);
-}
+    /* Hero Section */
+    .hero {
+      background: var(--primary-gradient);
+      color: white;
+      text-align: center;
+      padding: 140px 2rem 80px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 15px 10px;
-  background: #2c3e50;
-  color: white;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  font-size: 0.95rem;
-}
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .feature-card {
-    flex: 1 1 calc(50% - 20px);
-  }
-}
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
 
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 2rem;
-  }
+    .hero-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--book-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin: 0 auto 2rem;
+      animation: bookFloat 3s ease-in-out infinite;
+      box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+      position: relative;
+    }
 
-  .feature-card {
-    flex: 1 1 100%;
-  }
+    @keyframes bookFloat {
+      0%, 100% {
+        transform: translateY(0px) rotateY(0deg);
+      }
+      25% {
+        transform: translateY(-8px) rotateY(5deg);
+      }
+      50% {
+        transform: translateY(-5px) rotateY(0deg);
+      }
+      75% {
+        transform: translateY(-8px) rotateY(-5deg);
+      }
+    }
 
-  main {
-    padding: 30px 15px;
-    margin: 20px 10px;
-  }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff, #a8edea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: slideInUp 1s ease-out;
+    }
 
-  h2 {
-    font-size: 1.6rem;
-  }
+    .hero p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      font-weight: 400;
+      animation: slideInUp 1s ease-out 0.2s both;
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-  header .a {
-    font-size: 1rem;
-  }
+    /* Main Content */
+    .main-content {
+      background: var(--card-bg);
+      margin: 2rem;
+      padding: 4rem 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
 
-  footer {
-    font-size: 0.85rem;
-  }
-}
+    /* Overview Section */
+    .overview {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
 
+    .overview h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      background: var(--book-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
+    .overview p {
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Features Section */
+    .features-section h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      text-align: center;
+      background: var(--catalog-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--card-border);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--book-gradient);
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
+
+    .feature-card:nth-child(1)::before {
+      background: var(--secondary-gradient);
+    }
+
+    .feature-card:nth-child(2)::before {
+      background: var(--success-gradient);
+    }
+
+    .feature-card:nth-child(3)::before {
+      background: var(--purple-gradient);
+    }
+
+    .feature-card:nth-child(4)::before {
+      background: var(--orange-gradient);
+    }
+
+    .feature-card:nth-child(5)::before {
+      background: var(--accent-gradient);
+    }
+
+    .feature-card:nth-child(6)::before {
+      background: var(--catalog-gradient);
+    }
+
+    .feature-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      background: var(--book-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-card:nth-child(1) h3 {
+      background: var(--secondary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-card:nth-child(2) h3 {
+      background: var(--success-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-card:nth-child(3) h3 {
+      background: var(--purple-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-card:nth-child(4) h3 {
+      background: var(--orange-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-card:nth-child(5) h3 {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-card:nth-child(6) h3 {
+      background: var(--catalog-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-card p {
+      font-size: 1rem;
+      color: var(--text-dark);
+      line-height: 1.7;
+      text-align: justify;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      padding: 2rem;
+      background: var(--dark-bg);
+      color: white;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+
+    /* Animations */
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Scroll animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition);
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered animation for feature cards */
+    .feature-card:nth-child(1) {
+      animation: slideInUp 0.6s ease-out 0.1s both;
+    }
+
+    .feature-card:nth-child(2) {
+      animation: slideInUp 0.6s ease-out 0.2s both;
+    }
+
+    .feature-card:nth-child(3) {
+      animation: slideInUp 0.6s ease-out 0.3s both;
+    }
+
+    .feature-card:nth-child(4) {
+      animation: slideInUp 0.6s ease-out 0.4s both;
+    }
+
+    .feature-card:nth-child(5) {
+      animation: slideInUp 0.6s ease-out 0.5s both;
+    }
+
+    .feature-card:nth-child(6) {
+      animation: slideInUp 0.6s ease-out 0.6s both;
+    }
+
+    /* Enhanced Mobile Responsiveness */
+    @media (max-width: 768px) {
+      header.navbar {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav {
+        gap: 1rem;
+      }
+
+      nav a {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding: 120px 1rem 60px;
+      }
+
+      .hero-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+      }
+
+      .main-content {
+        margin: 1rem;
+        padding: 2rem 1rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .feature-card {
+        padding: 2rem;
+      }
+
+      .overview h2,
+      .features-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .overview p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .feature-card p {
+        font-size: 0.9rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .feature-card {
+        padding: 1.5rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Book Management</h1>
-    <p class="a">Effortlessly manage your library’s book collection with intuitive tools and advanced features.</p>
+  <header class="navbar">
+    <div class="logo">
+      <img src="IMG/2.png" alt="Nestive Tech Logo" />
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="features.html">Features</a>
+      <a href="download.html">Download</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
   <main>
-    <section>
-      <h2>Overview</h2>
-      <p>The Book Management module is designed to streamline the organization and administration of your library’s book collection. It offers features like cataloging, advanced search, and inventory tracking to simplify your workflow and improve user satisfaction.</p>
-    </section>
-
-    <section>
-      <h2>Features</h2>
-      <div class="feature-box">
-        <div class="feature-card">
-          <h3>Advanced Cataloging</h3>
-          <p>Tri-tech Solutions' Library Management System incorporates Advanced Cataloging, allowing libraries to meticulously organize their resources. With options to record metadata such as title, author, genre, ISBN, and publication year, it ensures a structured and consistent database. The feature supports batch cataloging for faster data input and integrates seamlessly with external bibliographic databases, simplifying the enrichment process. Custom tags and categories further enhance resource categorization, making it easier for both staff and patrons to locate materials efficiently.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Inventory Tracking</h3>
-          <p>Our system provides real-time Inventory Tracking, offering a transparent overview of the library's collections. It updates resource availability automatically with every borrowing or return transaction. Administrators can easily identify missing or damaged items and generate reports to monitor stock levels and borrowing trends. This feature ensures efficient inventory management, helping libraries maintain order and plan timely acquisitions or replacements.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Custom Tags</h3>
-          <p>The Custom Tags feature enables libraries to categorize their resources in unique ways, improving organization and accessibility. Librarians can create tailored tags—like "New Arrivals", "Science Fiction", or "Bestsellers"—to enhance searchability. Multiple tags can be assigned to a single item, making it discoverable across various categories. This flexibility ensures a personalized and user-friendly browsing experience for patrons.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Borrowing and Returns</h3>
-          <p>Simplify the lending process with Borrowing and Returns functionality. The system tracks loans, assigns due dates, and updates availability status automatically. Automated reminders for overdue items reduce late returns, and patrons can view or renew their loans through their user accounts. For administrators, this feature provides detailed reports on borrowing patterns and overdue materials, facilitating better operational management and accountability.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Search and Filter</h3>
-          <p>With Search and Filter, locating resources has never been easier. The advanced search functionality enables patrons to quickly find books using parameters like title, author, genre, or custom tags. Filters such as availability and location refine search results further, enhancing the user experience. Predictive search suggestions and real-time updates ensure users can access accurate and relevant information effortlessly.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Detailed Reports</h3>
-          <p>The Detailed Reports feature provides libraries with comprehensive data insights. From borrowing trends and popular items to overdue fines and usage statistics, the reports empower administrators to make informed decisions. Visual data representations such as charts and graphs allow easy interpretation of key metrics, aiding in resource allocation, inventory updates, and service improvements. Customizable reporting ensures libraries can focus on the metrics most relevant to their needs.</p>
-        </div>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-icon">📚</div>
+        <h1>Book Management</h1>
+        <p>Effortlessly manage your library's book collection with intuitive tools and advanced features designed for modern library operations.</p>
       </div>
     </section>
 
+    <section class="main-content animate-on-scroll">
+      <div class="overview">
+        <h2>Overview</h2>
+        <p>The Book Management module is designed to streamline the organization and administration of your library's book collection. It offers features like cataloging, advanced search, and inventory tracking to simplify your workflow and improve user satisfaction. Experience the power of intelligent book management that grows with your library's needs.</p>
+      </div>
+
+      <div class="features-section">
+        <h2>Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>Advanced Cataloging</h3>
+            <p>Tri-tech Solutions' Library Management System incorporates Advanced Cataloging, allowing libraries to meticulously organize their resources. With options to record metadata such as title, author, genre, ISBN, and publication year, it ensures a structured and consistent database. The feature supports batch cataloging for faster data input and integrates seamlessly with external bibliographic databases, simplifying the enrichment process. Custom tags and categories further enhance resource categorization, making it easier for both staff and patrons to locate materials efficiently.</p>
+          </div>
+
+          <div class="feature-card">
+            <h3>Inventory Tracking</h3>
+            <p>Our system provides real-time Inventory Tracking, offering a transparent overview of the library's collections. It updates resource availability automatically with every borrowing or return transaction. Administrators can easily identify missing or damaged items and generate reports to monitor stock levels and borrowing trends. This feature ensures efficient inventory management, helping libraries maintain order and plan timely acquisitions or replacements.</p>
+          </div>
+
+          <div class="feature-card">
+            <h3>Custom Tags</h3>
+            <p>The Custom Tags feature enables libraries to categorize their resources in unique ways, improving organization and accessibility. Librarians can create tailored tags—like "New Arrivals", "Science Fiction", or "Bestsellers"—to enhance searchability. Multiple tags can be assigned to a single item, making it discoverable across various categories. This flexibility ensures a personalized and user-friendly browsing experience for patrons.</p>
+          </div>
+
+          <div class="feature-card">
+            <h3>Borrowing and Returns</h3>
+            <p>Simplify the lending process with Borrowing and Returns functionality. The system tracks loans, assigns due dates, and updates availability status automatically. Automated reminders for overdue items reduce late returns, and patrons can view or renew their loans through their user accounts. For administrators, this feature provides detailed reports on borrowing patterns and overdue materials, facilitating better operational management and accountability.</p>
+          </div>
+
+          <div class="feature-card">
+            <h3>Search and Filter</h3>
+            <p>With Search and Filter, locating resources has never been easier. The advanced search functionality enables patrons to quickly find books using parameters like title, author, genre, or custom tags. Filters such as availability and location refine search results further, enhancing the user experience. Predictive search suggestions and real-time updates ensure users can access accurate and relevant information effortlessly.</p>
+          </div>
+
+          <div class="feature-card">
+            <h3>Detailed Reports</h3>
+            <p>The Detailed Reports feature provides libraries with comprehensive data insights. From borrowing trends and popular items to overdue fines and usage statistics, the reports empower administrators to make informed decisions. Visual data representations such as charts and graphs allow easy interpretation of key metrics, aiding in resource allocation, inventory updates, and service improvements. Customizable reporting ensures libraries can focus on the metrics most relevant to their needs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Nestive Tech. All rights reserved.</p>
   </footer>
-</body>
 
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
 </html>

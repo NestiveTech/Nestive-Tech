@@ -3,254 +3,636 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Tri-tech Solutions</title>
+  <title>Contact - Nestive Tech | Smart Software Solutions</title>
   <link rel="icon" type="image/jpeg" href="IMG\2.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    /* Global Styles */
-    /* Reset & Global Styles */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: 'Poppins', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #333;
-  background: #f7f9fc;
-  line-height: 1.6;
-}
+    :root {
+      --primary-gradient: linear-gradient(135deg, #66c2ea 0%, #2a5577 100%);
+      --secondary-gradient: linear-gradient(135deg, #d12525 0%, #f55757 100%);
+      --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --success-gradient: linear-gradient(135deg, #1bef3b 0%, #62e351 100%);
+      --purple-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --orange-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --dark-bg: #0f0f23;
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --card-border: rgba(255, 255, 255, 0.2);
+      --text-light: #8892b0;
+      --text-dark: #2d3748;
+      --white: #ffffff;
+      --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
+      --border-radius: 16px;
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-/* Navbar */
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      color: var(--text-dark);
+      background: linear-gradient(135deg, #66c2ea 0%, #2a5577 100%);
+      min-height: 100vh;
+    }
+
+    /* Enhanced Navbar */
     header.navbar {
-      background: linear-gradient(135deg, #4ca1af, #2c3e50);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 15, 35, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       color: white;
-      padding: 5px 15px;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-      flex-wrap: wrap;
-      font-size: 20px;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
     }
-    header.navbar a {
+
+    header.navbar.scrolled {
+      background: rgba(15, 15, 35, 0.98);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      perspective: 1000px;
+    }
+
+    .logo img {
+      height: 45px;
+      width: 45px;
+      border-radius: 12px;
+      animation: floatRotate 6s ease-in-out infinite;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+      transition: var(--transition);
+    }
+
+    .logo:hover img {
+      transform: scale(1.1) rotateY(180deg);
+    }
+
+    @keyframes floatRotate {
+      0%, 100% {
+        transform: translateY(0px) rotateY(0deg);
+      }
+      33% {
+        transform: translateY(-8px) rotateY(120deg);
+      }
+      66% {
+        transform: translateY(4px) rotateY(240deg);
+      }
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
       color: white;
       text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-      transition: color 0.3s ease;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      position: relative;
+      transition: var(--transition);
+      overflow: hidden;
     }
-    header.navbar a:hover { color: #ff6f61; }
-  
 
-.logo {
-  text-align: center;
-  perspective: 1000px; /* Enables 3D effect */
-  border-radius: 15%;
-  background-color: #ffffff;
-}
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gradient);
+      transition: var(--transition);
+      z-index: -1;
+    }
 
-.logo img {
-  height: 50px;
+    nav a:hover::before {
+      left: 0;
+    }
 
-  animation: rotateLeftToRight 3s linear infinite;
-  transform-style: preserve-3d;
-}
+    nav a:hover {
+      transform: translateY(-2px);
+      color: white;
+    }
 
-@keyframes rotateLeftToRight {
-  0% {
-    transform: rotateY(0deg);
-  }
-  100% {
-    transform: rotateY(360deg);
-  }
-}
+    /* Hero Section */
+    .hero {
+      background: var(--primary-gradient);
+      color: white;
+      text-align: center;
+      padding: 140px 2rem 80px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-/* Contact Section */
-.content {
-  padding: 60px 20px;
-  text-align: center;
-  background: linear-gradient(to bottom, #ffffff, #f2f6fa);
-  min-height: calc(100vh - 160px);
-}
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
 
-.content h1 {
-  font-size: 2.8rem;
-  color: #2c3e50;
-  margin-bottom: 15px;
-}
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
 
-.content p {
-  font-size: 1.1rem;
-  color: #555;
-  max-width: 700px;
-  margin: 0 auto 40px;
-}
+    .hero-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin: 0 auto 2rem;
+      animation: iconFloat 3s ease-in-out infinite;
+      box-shadow: 0 20px 40px rgba(79, 172, 254, 0.3);
+    }
 
-/* Contact Form */
-form {
-  max-width: 650px;
-  margin: 0 auto;
-  background: white;
-  padding: 35px 30px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1s ease-in-out;
-  text-align: left;
-}
+    @keyframes iconFloat {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
 
-form label {
-  font-weight: 600;
-  margin-bottom: 5px;
-  display: block;
-  color: #333;
-}
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff, #a8edea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: slideInUp 1s ease-out;
+    }
 
-form input,
-form textarea {
-  width: 100%;
-  padding: 12px 15px;
-  margin-top: 8px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  transition: border 0.3s ease, box-shadow 0.3s ease;
-}
+    .hero p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      font-weight: 400;
+      animation: slideInUp 1s ease-out 0.2s both;
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-form textarea {
-  height: 120px;
-  resize: none;
-}
+    /* Main Content */
+    .main-content {
+      background: var(--card-bg);
+      margin: 2rem;
+      padding: 4rem 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
 
-form input:focus,
-form textarea:focus {
-  border-color: #4ca1af;
-  box-shadow: 0 0 6px rgba(76, 161, 175, 0.3);
-  outline: none;
-}
+    /* Contact Content */
+    .contact-content {
+      display: flex;
+      justify-content: center;
+      align-items: start;
+    }
 
-form button {
-  display: inline-block;
-  background: #4ca1af;
-  color: white;
-  padding: 12px 25px;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
+    .contact-info h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-form button:hover {
-  background: #2c3e50;
-  transform: scale(1.05);
-}
+    .contact-info p {
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
 
-/* Footer */
-footer {
-    margin-top: 280px;
-    text-align: center;
-    padding: 2px;
-    background: #2c3e50;
-    color: white;
-    width: 100%; /* Full-width footer */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
+    .contact-cards {
+      display: grid;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
 
-/* Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    .contact-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--card-border);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .content h1 {
-    font-size: 2rem;
-  }
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--accent-gradient);
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
 
-  .content p {
-    font-size: 1rem;
-  }
+    .contact-card:nth-child(1)::before {
+      background: var(--success-gradient);
+    }
 
-  form {
-    padding: 25px 20px;
-  }
+    .contact-card:nth-child(2)::before {
+      background: var(--purple-gradient);
+    }
 
-  header.navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
+    .contact-card:nth-child(3)::before {
+      background: var(--orange-gradient);
+    }
 
-  header.navbar nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
+    .contact-card:hover::before {
+      transform: scaleX(1);
+    }
 
-  header.navbar a {
-    margin-left: 0;
-    font-size: 0.95rem;
-  }
-}
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
 
+    .contact-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .contact-card:nth-child(1) h3 {
+      background: var(--success-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact-card:nth-child(2) h3 {
+      background: var(--purple-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact-card:nth-child(3) h3 {
+      background: var(--orange-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact-card p {
+      color: var(--text-dark);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* Email Link Styling */
+    .email-link {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      background: var(--success-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 0.5rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .email-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--success-gradient);
+      opacity: 0.1;
+      border-radius: 6px;
+      transform: scaleX(0);
+      transition: var(--transition);
+      z-index: -1;
+    }
+
+    .email-link:hover::before {
+      transform: scaleX(1);
+    }
+
+    .email-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(27, 239, 59, 0.3);
+    }
+
+    /* Phone Link Styling */
+    .phone-link {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      background: var(--purple-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 0.5rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phone-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--purple-gradient);
+      opacity: 0.1;
+      border-radius: 6px;
+      transform: scaleX(0);
+      transition: var(--transition);
+      z-index: -1;
+    }
+
+    .phone-link:hover::before {
+      transform: scaleX(1);
+    }
+
+    .phone-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      padding: 2rem;
+      background: var(--dark-bg);
+      color: white;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
 
     /* Animations */
-    @keyframes fadeIn {
-      0% {
+    @keyframes slideInUp {
+      from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
       }
-      100% {
+      to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    /* Scroll animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition);
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Enhanced Mobile Responsiveness */
+    @media (max-width: 768px) {
+      header.navbar {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav {
+        gap: 1rem;
+      }
+
+      nav a {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding: 120px 1rem 60px;
+      }
+
+      .hero-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+      }
+
+      .main-content {
+        margin: 1rem;
+        padding: 2rem 1rem;
+      }
+
+      .contact-content {
+        justify-content: center;
+      }
+
+      .contact-cards {
+        gap: 1rem;
+      }
+
+      .contact-card {
+        padding: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .contact-info h2 {
+        font-size: 1.5rem;
+      }
+
+      .contact-card h3 {
+        font-size: 1.1rem;
+      }
+
+      .contact-card p {
+        font-size: 0.9rem;
       }
     }
   </style>
 </head>
 <body>
   <header class="navbar">
-    <div class="logo"><img src="IMG/2.png" alt="TriCode Tech Logo"></div>
+    <div class="logo">
+      <img src="IMG/2.png" alt="Nestive Tech Logo" />
+    </div>
     <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
-      <!-- <a href="features.html">Features</a> -->
+      <a href="features.html">Features</a>
       <a href="download.html">Download</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main>
-    <section class="content">
-      <h1>Contact Us</h1>
-      <p>We would love to hear from you! Whether you have questions, feedback, or need support, feel free to reach out to our team using the form below.</p>
-      <form>
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-icon">📞</div>
+        <h1>Contact Us</h1>
+        <p>We would love to hear from you! Whether you have questions, feedback, or need support, our dedicated team is here to help you every step of the way.</p>
+      </div>
+    </section>
 
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+    <section class="main-content animate-on-scroll">
+      <div class="contact-content">
+        <div class="contact-info">
+          <h2>Get In Touch</h2>
+          <p>Ready to transform your library management experience? Reach out to our expert team for personalized assistance, technical support, or to learn more about our innovative solutions.</p>
+          
+          <div class="contact-cards">
+            <div class="contact-card">
+              <h3>📧 Email Support</h3>
+              <p>Get comprehensive support and detailed answers to your questions via email.</p>
+              <a href="mailto:nestivetech@gmail.com" class="email-link">support</a>
+            </div>
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            <!-- <div class="contact-card">
+              <h3>📱 Phone Support</h3>
+              <p>Speak directly with our technical experts for immediate assistance.</p>
+              <a href="tel:+15551234567" class="phone-link"></a>
+            </div> -->
 
-        <button type="submit">Send Message</button>
-      </form>
+            <div class="contact-card">
+              <h3>🕒 Business Hours</h3>
+              <p>We're available to assist you during our standard business hours.</p>
+              <p><strong>Mon - Fri: 9:00 AM - 6:00 PM EST</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Nestive Tech. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Method button interactions
+    document.querySelectorAll('.contact-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0)';
+      });
+    });
+
+    // Email click tracking (optional analytics)
+    document.querySelector('.email-link').addEventListener('click', function() {
+      console.log('Email link clicked - opening mail client');
+    });
+
+    // Phone click tracking (optional analytics)
+    document.querySelector('.phone-link').addEventListener('click', function() {
+      console.log('Phone link clicked - initiating call');
+    });
+  </script>
 </body>
 </html>

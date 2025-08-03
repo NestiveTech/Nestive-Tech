@@ -3,242 +3,531 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Features - Nestive Tech</title>
+  <title>Features - Nestive Tech | Smart Software Solutions</title>
   <link rel="icon" type="image/jpeg" href="IMG\2.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    /* Global Styles */
-    /* Global Reset & Base Styles */
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-html {
-  box-sizing: border-box;
-  font-size: 16px;
-  scroll-behavior: smooth;
-}
+    :root {
+      --primary-gradient: linear-gradient(135deg, #66c2ea 0%, #2a5577 100%);
+      --secondary-gradient: linear-gradient(135deg, #d12525 0%, #f55757 100%);
+      --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --success-gradient: linear-gradient(135deg, #1bef3b 0%, #62e351 100%);
+      --purple-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --orange-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --dark-bg: #0f0f23;
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --card-border: rgba(255, 255, 255, 0.2);
+      --text-light: #8892b0;
+      --text-dark: #2d3748;
+      --white: #ffffff;
+      --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
+      --border-radius: 16px;
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-body {
-  font-family: 'Poppins', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  color: #333;
-  background-color: #fff;
-}
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
 
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      color: var(--text-dark);
+      background: linear-gradient(135deg, #66c2ea 0%, #2a5577 100%);
+      min-height: 100vh;
+    }
 
-/* Navbar */
-header.navbar {
-  background: linear-gradient(135deg, #4ca1af, #2c3e50);
-  color: white;
-  padding-right: 15px;
-  padding-left: 10px;
-  padding-top: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  font-size: 20px;
-}
+    /* Enhanced Navbar - Same as homepage */
+    header.navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 15, 35, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+    }
 
-header.navbar nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
+    header.navbar.scrolled {
+      background: rgba(15, 15, 35, 0.98);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
 
-header.navbar a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      perspective: 1000px;
+    }
 
-header.navbar a:hover,
-header.navbar a:focus {
-  color: #ff6f61;
-}
-.logo {
-  text-align: center;
-  perspective: 1000px; /* Enables 3D effect */
-  border-radius: 15%;
-  background-color: #ffffff;
-}
+    .logo img {
+      height: 45px;
+      width: 45px;
+      border-radius: 12px;
+      animation: floatRotate 6s ease-in-out infinite;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+      transition: var(--transition);
+    }
 
-.logo img {
-  height: 50px;
+    .logo:hover img {
+      transform: scale(1.1) rotateY(180deg);
+    }
 
-  animation: rotateLeftToRight 3s linear infinite;
-  transform-style: preserve-3d;
-}
+    @keyframes floatRotate {
+      0%, 100% {
+        transform: translateY(0px) rotateY(0deg);
+      }
+      33% {
+        transform: translateY(-8px) rotateY(120deg);
+      }
+      66% {
+        transform: translateY(4px) rotateY(240deg);
+      }
+    }
 
-@keyframes rotateLeftToRight {
-  0% {
-    transform: rotateY(0deg);
-  }
-  100% {
-    transform: rotateY(360deg);
-  }
-}
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
 
-/* Content Section */
-.content {
-  background: #f9f9f9;
-  padding: 60px 20px;
-  animation: fadeInUp 0.8s ease-in-out;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      position: relative;
+      transition: var(--transition);
+      overflow: hidden;
+    }
 
-.content h1 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-  color: #2c3e50;
-  letter-spacing: 1px;
-}
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-gradient);
+      transition: var(--transition);
+      z-index: -1;
+    }
 
-.content p {
-  text-align: center;
-  font-size: 1.2rem;
-  margin: 0 auto 40px;
-  max-width: 800px;
-  color: #555;
-}
+    nav a:hover::before {
+      left: 0;
+    }
 
-/* Features Grid */
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 10px;
-}
+    nav a:hover {
+      transform: translateY(-2px);
+      color: white;
+    }
 
-.feature-card {
-  background: #fff;
-  padding: 25px 20px;
-  border-radius: 12px;
-  text-align: center;
-  text-decoration: none;
-  color: inherit;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    /* Hero Section for Features */
+    .features-hero {
+      background: var(--primary-gradient);
+      color: white;
+      text-align: center;
+      padding: 140px 2rem 80px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-.feature-card:hover,
-.feature-card:focus {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
+    .features-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
 
-.feature-card h2 {
-  color: #4ca1af;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
+    .features-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
 
-.feature-card p {
-  font-size: 1rem;
-  color: #555;
-}
+    .features-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff, #a8edea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: slideInUp 1s ease-out;
+    }
 
-/* Footer */
-footer {
-    margin-top: 280px;
-    text-align: center;
-    padding: 2px;
-    background: #2c3e50;
-    color: white;
-    width: 100%; /* Full-width footer */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
+    .features-hero p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      font-weight: 400;
+      animation: slideInUp 1s ease-out 0.2s both;
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    /* Features Grid */
+    .features-section {
+      background: var(--card-bg);
+      margin: 2rem;
+      padding: 4rem 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
 
-/* Responsive Enhancements */
-@media (max-width: 768px) {
-  .content h1 {
-    font-size: 2rem;
-  }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-  .content p {
-    font-size: 1rem;
-  }
+    .feature-card {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      /* group: feature-card; */
+    }
 
-  header.navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--accent-gradient);
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
 
-  .feature-card h2 {
-    font-size: 1.3rem;
-  }
+    .feature-card:nth-child(1)::before {
+      background: var(--secondary-gradient);
+    }
 
-  .feature-card p {
-    font-size: 0.95rem;
-  }
-}
+    .feature-card:nth-child(2)::before {
+      background: var(--success-gradient);
+    }
+
+    .feature-card:nth-child(3)::before {
+      background: var(--purple-gradient);
+    }
+
+    .feature-card:nth-child(4)::before {
+      background: var(--orange-gradient);
+    }
+
+    .feature-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(102, 126, 234, 0.3);
+    }
+
+    /* Feature Icons */
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .feature-card:nth-child(1) .feature-icon {
+      background: var(--secondary-gradient);
+    }
+
+    .feature-card:nth-child(2) .feature-icon {
+      background: var(--success-gradient);
+    }
+
+    .feature-card:nth-child(3) .feature-icon {
+      background: var(--purple-gradient);
+    }
+
+    .feature-card:nth-child(4) .feature-icon {
+      background: var(--orange-gradient);
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1) rotateY(180deg);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-card h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: var(--transition);
+    }
+
+    .feature-card:nth-child(1) h2 {
+      background: var(--secondary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-card:nth-child(2) h2 {
+      background: var(--success-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-card:nth-child(3) h2 {
+      background: var(--purple-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-card:nth-child(4) h2 {
+      background: var(--orange-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-card p {
+      font-size: 1rem;
+      color: var(--text-dark);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    /* Call-to-action arrow */
+    .feature-card::after {
+      content: '→';
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      font-size: 1.5rem;
+      color: rgba(0, 0, 0, 0.3);
+      transition: var(--transition);
+      opacity: 0;
+    }
+
+    .feature-card:hover::after {
+      opacity: 1;
+      transform: translateX(5px);
+      color: #4facfe;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      padding: 2rem;
+      background: var(--dark-bg);
+      color: white;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
 
     /* Animations */
-    @keyframes fadeInUp {
+    @keyframes slideInUp {
       from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
       }
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
+
+    /* Scroll animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: var(--transition);
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered animation for feature cards */
+    .feature-card:nth-child(1) {
+      animation: slideInUp 0.6s ease-out 0.1s both;
+    }
+
+    .feature-card:nth-child(2) {
+      animation: slideInUp 0.6s ease-out 0.2s both;
+    }
+
+    .feature-card:nth-child(3) {
+      animation: slideInUp 0.6s ease-out 0.3s both;
+    }
+
+    .feature-card:nth-child(4) {
+      animation: slideInUp 0.6s ease-out 0.4s both;
+    }
+
+    /* Enhanced Mobile Responsiveness */
+    @media (max-width: 768px) {
+      header.navbar {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav {
+        gap: 1rem;
+      }
+
+      nav a {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .features-hero {
+        padding: 120px 1rem 60px;
+      }
+
+      .features-section {
+        margin: 1rem;
+        padding: 2rem 1rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .feature-card {
+        padding: 2rem;
+      }
+
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .features-hero h1 {
+        font-size: 2rem;
+      }
+
+      .features-hero p {
+        font-size: 1rem;
+      }
+
+      .feature-card h2 {
+        font-size: 1.3rem;
+      }
+
+      .feature-card p {
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
-
+  <header class="navbar">
+    <div class="logo">
+      <img src="IMG/2.png" alt="Nestive Tech Logo" />
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="download.html">Download</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
   <main>
-    <section class="content">
-      <h1>Features</h1>
-      <p>Our Library Management System is designed to revolutionize library operations with cutting-edge tools and functionalities. Explore the powerful features we offer:</p>
+    <section class="features-hero">
+      <div class="features-hero-content">
+        <h1>LibNest Features</h1>
+        <p>Our Library Management System is designed to revolutionize library operations with cutting-edge tools and functionalities. Explore the powerful features we offer:</p>
+      </div>
+    </section>
 
+    <section class="features-section animate-on-scroll">
       <div class="features-grid">
         <a href="Book Management.html" class="feature-card">
+          <div class="feature-icon">📚</div>
           <h2>Book Management</h2>
           <p>Easily catalog, update, and track books with advanced metadata such as author, genre, and publication year.</p>
         </a>
+
         <a href="Advanced Search.html" class="feature-card">
+          <div class="feature-icon">🔍</div>
           <h2>Advanced Search</h2>
           <p>Find books, authors, or members quickly with intuitive search filters and suggestions.</p>
         </a>
+
         <a href="Member Profiles.html" class="feature-card">
+          <div class="feature-icon">👥</div>
           <h2>Member Profiles</h2>
           <p>Manage member data, borrowing history, and due dates in a secure and efficient manner.</p>
         </a>
+
         <a href="Automated Notifications.html" class="feature-card">
+          <div class="feature-icon">🔔</div>
           <h2>Automated Notifications</h2>
           <p>Send reminders for reservations, due dates, and overdue books to ensure timely returns.</p>
         </a>
-        <!-- <a href="barcode-scanning.html" class="feature-card">
-          <h2>Barcode Scanning</h2>
-          <p>Streamline cataloging and checkouts with barcode-enabled functionality.</p>
-        </a>
-        <a href="cloud-storage.html" class="feature-card">
-          <h2>Cloud Storage</h2>
-          <p>Securely back up your library's data for quick recovery and accessibility from anywhere.</p>
-        </a> -->
       </div>
     </section>
   </main>
@@ -246,7 +535,35 @@ footer {
   <footer>
     <p>&copy; 2025 Nestive Tech. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
-
-
